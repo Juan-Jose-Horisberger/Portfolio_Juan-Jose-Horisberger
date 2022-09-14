@@ -175,14 +175,17 @@ export default function Home() {
                     <h1>Contruyendo hermosas experiencias web.</h1>
                     <button>Download CV.</button>
                 </div>
-                <div className={`${styles.container_Div2}`}>
-                    <img src={imagenPersonal} alt="img" className="img-fluid" />
+
+                <div className={`${styles.container_img}`}>
+                    <div className={`${styles.container_Div2}`}>
+                        <img src={imagenPersonal} alt="img" className="img-fluid" />
+                    </div>
                 </div>
             </div>
 
 
 
-            <div style={{ marginTop: "130px" }}>
+            <div className={`${styles.container_Proyects}`} style={{ marginTop: "130px" }}>
                 <div className={`${styles.container_Section1}`}>
                     <h3>Mi trabajo</h3>
                     <p>En esta sección muestro algunos de los proyectos que he realizado con los conocimientos adquiridos utilizando tecnologías tanto de Front-end como de Back-end</p>

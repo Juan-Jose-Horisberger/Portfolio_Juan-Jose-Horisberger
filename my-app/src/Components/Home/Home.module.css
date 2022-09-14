@@ -38,7 +38,7 @@
     justify-content: center;
 }
 
-.container_Contenedor div:first-child {
+.container_Contenedor .container_Div1 {
     /*container text*/
     width: 52%;
     display: flex;
@@ -48,7 +48,7 @@
     flex-direction: column;
 }
 
-.container_Contenedor div:first-child h1 {
+.container_Contenedor .container_Div1 h1 {
     font-size: 67px;
     text-align: start;
     letter-spacing: 5px;
@@ -56,7 +56,7 @@
     font-weight: bold;
 }
 
-.container_Contenedor div:first-child button {
+.container_Contenedor .container_Div1 button {
     /*container text*/
     width: 150px;
     padding: 5px;
@@ -66,16 +66,17 @@
     background-color: transparent;
 }
 
-.container_Contenedor div:last-child {
+.container_Contenedor .container_Div2 {
     /*container img*/
-    width: 44%;
+    width: 520px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     margin: 0;
+    /* border: 1px solid red; */
 }
 
-.container_Contenedor div:last-child img {
+.container_Contenedor .container_Div2 img {
     border-radius: 50%;
 }
 
@@ -372,4 +373,257 @@
 
 .containerIcons_Contact a:hover {
     cursor: pointer;
+}
+
+
+@media screen and (min-width: 100px) and (max-width: 576px) {
+    .container_Contenedor {
+        position: absolute;
+        top: 15%;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .container_img {
+        width: 100% !important;
+        margin-top: 50px;
+
+        display: flex;
+        justify-content: center;
+        padding: 0 15px;
+    }
+
+    .container_Contenedor .container_Div2 {
+        width: 400px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .container_Contenedor .container_Div1 {
+        width: 100%;
+    }
+
+    .container_Contenedor .container_Div1 h1 {
+        font-size: 25px;
+        text-align: center;
+    }
+
+
+    .container_Proyects {
+        padding: 0px 15px;
+    }
+
+    .container_Proyect1 {
+        margin: 0;
+    }
+
+    .container_Section1 {
+        width: 100%;
+        padding: 0;
+    }
+
+    .container_Gaed {
+        width: 100%;
+        display: flex;
+        padding: 20px;
+        justify-content: center;
+    }
+
+    .container_Gaed div {
+        width: 90px;
+        border: 5px solid white;
+        border-right: transparent;
+    }
+
+    .container_Proyect1 h1 {
+        font-size: 20px;
+        padding: 5px;
+        padding-top: 28px;
+        margin: 0;
+        border: 5px solid white;
+        border-left: transparent;
+        font-family: 'Rubik', sans-serif;
+    }
+
+    .container_Proyect2,
+    .container_Proyect3 {
+        margin: 0;
+        margin-top: 150px;
+    }
+
+    .container_Proyect1 .info_Proyect,
+    .container_Proyect2 .info_Proyect,
+    .container_Proyect3 .info_Proyect {
+        padding: 15px 5px;
+    }
+
+    .containerButtons_Proyect {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .containerButtons_Proyect a {
+
+        margin: 10px;
+
+    }
+
+    .container_technologies {
+        padding: 0px 15px;
+    }
+
+    .container_technologies .containerAll_technologies {
+        margin: 0;
+    }
+
+    .container_Form {
+        padding: 0px 15px;
+    }
+
+    .container_Form .containerTitle_Contact {
+        width: 100%;
+        /*  */
+        margin: 0;
+        text-align: start;
+    }
+
+    .container_Form form {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container_Inputs {
+        width: 100%;
+        margin-bottom: 70px;
+    }
+
+    .containerIcons_Contact {
+        width: 100%;
+        justify-content: space-around;
+        padding-bottom: 10px;
+    }
+
+    .containerIcons_Contact a {
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 576px) and (max-width: 762px) {
+    .container_Contenedor {
+        position: absolute;
+        top: 15%;
+        padding: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .container_img {
+        width: 100% !important;
+        margin-top: 20px;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .container_Contenedor .container_Div2 {
+        width: 400px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .container_Contenedor .container_Div1 {
+        width: 100%;
+    }
+
+    .container_Contenedor .container_Div1 h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+
+    .container_Form form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container_Inputs {
+        width: 100%;
+        margin-bottom: 70px;
+    }
+
+    .containerIcons_Contact {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 762px) and (max-width: 992px) {
+    .container_Contenedor {
+        position: absolute;
+        top: 15%;
+        padding: 0 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+
+    .container_img {
+        width: 100% !important;
+        margin-top: 20px;
+
+        display: flex;
+        justify-content: center;
+    }
+
+    .container_Contenedor .container_Div2 {
+        width: 400px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+    }
+
+    .container_Contenedor .container_Div1 {
+        width: 100%;
+    }
+
+    .container_Contenedor .container_Div1 h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+
+    .container_Form form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container_Inputs {
+        width: 100%;
+        margin-bottom: 70px;
+    }
+
+    .containerIcons_Contact {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1200px) {
+    .container_Contenedor .container_Div1 {
+        padding-left: 20px;
+    }
 }
