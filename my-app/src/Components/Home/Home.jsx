@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
@@ -9,7 +9,9 @@ import { BsGithub, BsFillEyeFill, BsLinkedin } from "react-icons/bs";
 import { MdFoodBank } from "react-icons/md";
 import { AiOutlineGithub } from "react-icons/ai";
 import emailjs from "@emailjs/browser";
-
+import * as Scroll from 'react-scroll';
+import { Element } from 'react-scroll'
+import documentCv from "../../Curriculum de Juan Jose Horisberger 2022.pdf"
 
 /*Iconos*/
 import imgHtml from "../../imagenes/imgHtml.svg";
@@ -31,6 +33,7 @@ import imgScrum from "../../imagenes/imgScrum.png";
 /*Iconos de React-icons*/
 import { AiOutlineMail } from "react-icons/ai";
 import { BsWhatsapp } from "react-icons/bs";
+import { SiVercel } from "react-icons/si";
 
 export default function Home() {
     const [input, setInput] = useState({
@@ -82,9 +85,11 @@ export default function Home() {
             .catch(e => console.log(e))
     }
 
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
     return (
-        <div>
+        <div id="hero">
             <Navbar />
             <div className={`${styles.container_Particles}`}>
                 <Particles
@@ -170,18 +175,20 @@ export default function Home() {
                 />
 
             </div>
-            <div className={`${styles.container_Contenedor}`}>
-                <div className={`${styles.container_Div1}`}>
-                    <h1>Contruyendo hermosas experiencias web.</h1>
-                    <button>Download CV.</button>
-                </div>
+            <Element name="inicio">
+                <div className={`${styles.container_Contenedor}`}>
+                    <div className={`${styles.container_Div1}`}>
+                        <h1>Contruyendo hermosas experiencias web.</h1>
+                        <a href={documentCv} download>Download CV.</a>
+                    </div>
 
-                <div className={`${styles.container_img}`}>
-                    <div className={`${styles.container_Div2}`}>
-                        <img src={imagenPersonal} alt="img" className="img-fluid" />
+                    <div className={`${styles.container_img}`}>
+                        <div className={`${styles.container_Div2}`}>
+                            <img src={imagenPersonal} alt="img" className="img-fluid" />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Element>
 
 
 
@@ -190,40 +197,42 @@ export default function Home() {
                     <h3>Mi trabajo</h3>
                     <p>En esta sección muestro algunos de los proyectos que he realizado con los conocimientos adquiridos utilizando tecnologías tanto de Front-end como de Back-end</p>
                 </div>
-                <div className={`${styles.container_Proyect1}`}>
-                    <div className={`${styles.container_Gaed}`}>
-                        <div>
-                            <img src={GaedImg} alt="" className="img-fluid" />
+                <Element name="trabajo">
+                    <div className={`${styles.container_Proyect1}`}>
+                        <div className={`${styles.container_Gaed}`}>
+                            <div>
+                                <img src={GaedImg} alt="" className="img-fluid" />
+                            </div>
+                            <h1>GAED.JM</h1>
                         </div>
-                        <h1>GAED.JM</h1>
-                    </div>
 
-                    <div className={`${styles.container_info}`}>
-                        <h4>E-commerce</h4>
-                        <div>
-                            <p>Front-End</p>
-                            <p>Back-End</p>
-                            <p>React.js</p>
-                            <p>Redux</p>
-                            <p>CSS3</p>
-                            <p>Responsive Web Desing</p>
-                            <p>Bootstrap</p>
-                            <p>Style Component</p>
-                            <p>SweetAlert2</p>
-                            <p>Node.js</p>
-                            <p>Express</p>
-                            <p>Sequelize</p>
+                        <div className={`${styles.container_info}`}>
+                            <h4>E-commerce</h4>
+                            <div>
+                                <p>Front-End</p>
+                                <p>Back-End</p>
+                                <p>React.js</p>
+                                <p>Redux</p>
+                                <p>CSS3</p>
+                                <p>Responsive Web Desing</p>
+                                <p>Bootstrap</p>
+                                <p>Style Component</p>
+                                <p>SweetAlert2</p>
+                                <p>Node.js</p>
+                                <p>Express</p>
+                                <p>Sequelize</p>
+                            </div>
+                        </div>
+
+                        <div className={`${styles.info_Proyect}`}>
+                            <p className="m-0">E-Commerce de ropa enfocado a la venta de indumentaria y calzado. La idea principal del proyecto es brindarle los mejores productos a el usuario donde podrá acceder a un catalogo de artículos 100% originales, con la posibilidad que el mismo pueda utilizar filtros combinados para concretar su compra de manera rápida y eficiente, entre otras funcionalidades..</p>
+                        </div>
+                        <div className={`${styles.containerButtons_Proyect}`}>
+                            <a href="https://gaed-jm-dusky.vercel.app/LandingPage">Ir al sitio <span className="ps-1"><BsFillEyeFill size={"20px"} color="white" /></span></a>
+                            <a href="https://github.com/Juan-Jose-Horisberger/Proyecto-final-front">Repositorio <span className="ps-1"><BsGithub size={"20px"} color="white" /></span> </a>
                         </div>
                     </div>
-
-                    <div className={`${styles.info_Proyect}`}>
-                        <p className="m-0">E-Commerce de ropa enfocado a la venta de indumentaria y calzado. La idea principal del proyecto es brindarle los mejores productos a el usuario donde podrá acceder a un catalogo de artículos 100% originales, con la posibilidad que el mismo pueda utilizar filtros combinados para concretar su compra de manera rápida y eficiente, entre otras funcionalidades..</p>
-                    </div>
-                    <div className={`${styles.containerButtons_Proyect}`}>
-                        <a href="https://gaed-jm-dusky.vercel.app/LandingPage">Ir al sitio <span className="ps-1"><BsFillEyeFill size={"20px"} color="white" /></span></a>
-                        <a href="https://github.com/Juan-Jose-Horisberger/Proyecto-final-front">Repositorio <span className="ps-1"><BsGithub size={"20px"} color="white" /></span> </a>
-                    </div>
-                </div>
+                </Element>
 
                 <div className={`${styles.container_Proyect2}`}>
                     <div className={`${styles.container_Gaed}`}>
@@ -287,114 +296,118 @@ export default function Home() {
 
             <div className={`${styles.container_technologies}`}>
                 <div className={`${styles.containerAll_technologies}`}>
-                    <div className={`${styles.containerTitle}`}>
-                        <h3>Tecnologías</h3>
-                        <p>Estos son los lenguages y librerías que he estado aprendiendo e implementando en mis proyectos</p>
-                    </div>
-                    <div className={`${styles.containerImg_technologies}`}>
-                        <div>
-                            <img src={imgHtml} alt="" className="img-fluid" />
-                            <p>HTML5</p>
+                    <Element name="tecnologias">
+                        <div className={`${styles.containerTitle}`}>
+                            <h3>Tecnologías</h3>
+                            <p>Estos son los lenguages y librerías que he estado aprendiendo e implementando en mis proyectos</p>
                         </div>
-                        <div>
-                            <img src={imgCss} alt="" className="img-fluid" />
-                            <p>CSS3</p>
+                        <div className={`${styles.containerImg_technologies}`}>
+                            <div>
+                                <img src={imgHtml} alt="" className="img-fluid" />
+                                <p>HTML5</p>
+                            </div>
+                            <div>
+                                <img src={imgCss} alt="" className="img-fluid" />
+                                <p>CSS3</p>
+                            </div>
+                            <div>
+                                <img src={imgBootstrap} alt="" className="img-fluid" />
+                                <p>Bootstrap</p>
+                            </div>
+                            <div>
+                                <img src={imgJavascript} alt="" className="img-fluid" />
+                                <p>Javascript</p>
+                            </div>
+                            <div>
+                                <img src={imgReact} alt="" className="img-fluid" />
+                                <p>React.js</p>
+                            </div>
+                            <div>
+                                <img src={imgRedux} alt="" className="img-fluid" />
+                                <p>Redux</p>
+                            </div>
+                            <div>
+                                <img src={imgNodeJs} alt="" className="img-fluid" />
+                                <p>Node.js</p>
+                            </div>
+                            <div>
+                                <img src={imgExpress} alt="" className="img-fluid" />
+                                <p>Express.js</p>
+                            </div>
+                            <div>
+                                <img src={imgSequelize} alt="" className="img-fluid" style={{ padding: "5px" }} />
+                                <p>Sequelize</p>
+                            </div>
+                            <div>
+                                <img src={imgPosgres} alt="" className="img-fluid" />
+                                <p>PostgreSQL</p>
+                            </div>
+                            <div>
+                                <img src={imgPostman} alt="" className="img-fluid" />
+                                <p>Postman</p>
+                            </div>
+                            <div>
+                                <img src={imgGit} alt="" className="img-fluid" />
+                                <p>Git</p>
+                            </div>
+                            <div>
+                                <img src={imgHeroku} alt="" className="img-fluid" />
+                                <p>Heroku</p>
+                            </div>
+                            <div>
+                                <SiVercel color="white" size={"70px"} />
+                                <p>Vercel</p>
+                            </div>
+                            <div>
+                                <img src={imgScrum} alt="" className="img-fluid" />
+                                <p>Scrum</p>
+                            </div>
                         </div>
-                        <div>
-                            <img src={imgBootstrap} alt="" className="img-fluid" />
-                            <p>Bootstrap</p>
-                        </div>
-                        <div>
-                            <img src={imgJavascript} alt="" className="img-fluid" />
-                            <p>Javascript</p>
-                        </div>
-                        <div>
-                            <img src={imgReact} alt="" className="img-fluid" />
-                            <p>React.js</p>
-                        </div>
-                        <div>
-                            <img src={imgRedux} alt="" className="img-fluid" />
-                            <p>Redux</p>
-                        </div>
-                        <div>
-                            <img src={imgNodeJs} alt="" className="img-fluid" />
-                            <p>Node.js</p>
-                        </div>
-                        <div>
-                            <img src={imgExpress} alt="" className="img-fluid" />
-                            <p>Express.js</p>
-                        </div>
-                        <div>
-                            <img src={imgSequelize} alt="" className="img-fluid" style={{ padding: "5px" }} />
-                            <p>Sequelize</p>
-                        </div>
-                        <div>
-                            <img src={imgPosgres} alt="" className="img-fluid" />
-                            <p>PostgreSQL</p>
-                        </div>
-                        <div>
-                            <img src={imgPostman} alt="" className="img-fluid" />
-                            <p>Postman</p>
-                        </div>
-                        <div>
-                            <img src={imgGit} alt="" className="img-fluid" />
-                            <p>Git</p>
-                        </div>
-                        <div>
-                            <img src={imgHeroku} alt="" className="img-fluid" />
-                            <p>Heroku</p>
-                        </div>
-                        <div>
-                            <img src={imgVercel} alt="" className="img-fluid" style={{ padding: "15px" }} />
-                            <p>Vercel</p>
-                        </div>
-                        <div>
-                            <img src={imgScrum} alt="" className="img-fluid" />
-                            <p>Scrum</p>
-                        </div>
-                    </div>
+                    </Element>
                 </div>
             </div>
 
-            <div className={`${styles.container_Form}`}>
-                <div className={`${styles.containerTitle_Contact}`}>
-                    <h3>Contactame</h3>
-                    <p>No dude en ponerse en contacto conmigo en cualquier momento, a través de cualquier método a continuación.</p>
-                </div>
-                <form onSubmit={(e) => handleSubmit(e)}>
-                    <div className={`${styles.container_Inputs}`}>
-                        <div>
-                            <label>Nombre</label>
-                            <input type="text" name="user_name" value={input.user_name} required autoComplete="off" onChange={(e) => handleOnChange(e)} />
-                        </div>
-                        <div>
-                            <label>Email</label>
-                            <input type="Email" name="user_email" value={input.user_email} required autoComplete="off" onChange={(e) => handleOnChange(e)} />
-                        </div>
-                        <div>
-                            <label>Mensaje</label>
-                            {/* <input type="text" name="name" required autoComplete="off" /> */}
-                            <textarea name="user_message" id="" cols="30" rows="10" value={input.user_message} required onChange={(e) => handleOnChange(e)} ></textarea>
-                        </div>
-                        <button type="submit">Enviar</button>
+            <Element name="contacto">
+                <div className={`${styles.container_Form}`}>
+                    <div className={`${styles.containerTitle_Contact}`}>
+                        <h3>Contactame</h3>
+                        <p>No dude en ponerse en contacto conmigo en cualquier momento, a través de cualquier método a continuación.</p>
                     </div>
-                    <div className={`${styles.containerIcons_Contact}`}>
-                        <a href="mailto:juanjhorisberger@gmail.com?Subject=Propuesta%20laboral">
-                            <AiOutlineMail size="50px" color="white" />
-                        </a>
-                        <a href="https://wa.me/+5491123149857">
-                            <BsWhatsapp size="50px" color="white" />
-                        </a>
-                        <a href="https://www.linkedin.com/in/juan-jose-horisberger/">
-                            <BsLinkedin size="50px" color="white" />
-                        </a>
-                        <a href="https://github.com/Juan-Jose-Horisberger">
-                            <AiOutlineGithub size="50px" color="white" />
-                        </a>
-                    </div>
+                    <form onSubmit={(e) => handleSubmit(e)}>
+                        <div className={`${styles.container_Inputs}`}>
+                            <div>
+                                <label>Nombre</label>
+                                <input type="text" name="user_name" value={input.user_name} required autoComplete="off" onChange={(e) => handleOnChange(e)} />
+                            </div>
+                            <div>
+                                <label>Email</label>
+                                <input type="Email" name="user_email" value={input.user_email} required autoComplete="off" onChange={(e) => handleOnChange(e)} />
+                            </div>
+                            <div>
+                                <label>Mensaje</label>
+                                {/* <input type="text" name="name" required autoComplete="off" /> */}
+                                <textarea name="user_message" id="" cols="30" rows="10" value={input.user_message} required onChange={(e) => handleOnChange(e)} ></textarea>
+                            </div>
+                            <button type="submit">Enviar</button>
+                        </div>
+                        <div className={`${styles.containerIcons_Contact}`}>
+                            <a href="mailto:juanjhorisberger@gmail.com?Subject=Propuesta%20laboral">
+                                <AiOutlineMail size="50px" color="white" />
+                            </a>
+                            <a href="https://wa.me/+5491123149857">
+                                <BsWhatsapp size="50px" color="white" />
+                            </a>
+                            <a href="https://www.linkedin.com/in/juan-jose-horisberger/">
+                                <BsLinkedin size="50px" color="white" />
+                            </a>
+                            <a href="https://github.com/Juan-Jose-Horisberger">
+                                <AiOutlineGithub size="50px" color="white" />
+                            </a>
+                        </div>
 
-                </form>
-            </div>
-        </div>
+                    </form>
+                </div>
+            </Element>
+        </div >
     )
 }

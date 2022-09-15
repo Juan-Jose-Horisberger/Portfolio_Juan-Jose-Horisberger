@@ -1,94 +1,3 @@
-// import React from "react";
-// import styled from 'styled-components'
-// import BurgerButton from "../BurgerButton/BurgerButton";
-
-// export default function SearchBar() {
-//     return (
-//         <>
-//             <NavBar>
-//                 <h2>Juan Jose Horisberger</h2>
-//                 <div className="links ">
-//                     <p className="m-0">Inicio</p>
-//                     <p className="m-0">Mi trabajo</p>
-//                     <p className="m-0">Tecnología</p>
-//                     <button>Contactame</button>
-//                 </div>
-//                 <span className="burger"><BurgerButton /></span>
-//             </NavBar>
-//         </>
-//     )
-// }
-
-// const NavBar = styled.nav`
-//     width: 100%;
-//     padding: .4rem;
-//     background-color: transparent;
-//     display: flex;
-//     justify-content: space-between !important;
-//     align-items: center;
-//     border: 1px solid red;
-//     h2{
-//         font-weight: 600;
-//         color: white;
-//         border: 1px solid red;
-//     }
-//     .links{
-//         width: 600px;
-//         display: flex;
-//         justify-content: space-around;
-//         align-items: center;
-//         border: 1px solid red;
-
-//         position: absolute;
-//         top: -700px;
-//         left: -2000px;
-//         margin-left: auto;
-//         margin-right: auto;
-//         text-align: center;
-//         p{
-//             color: white;
-//             margin: 0;
-//         }
-//         button{
-//             width: 120px;
-//             border-radius: 5px;
-//             border-color: 1x solid "#17171F";
-//             background-color: transparent;
-//             padding: 5px;
-//             outline: none;
-//         }
-//         @media(min-width: 768px){
-//             position: initial;
-//             margin: 0;
-//             display: flex;
-//             flex-direction: column;
-//         }
-//     }
-
-//     .links.active{ //Cambiamos los estilos de links, para medidas de celulares
-//         width: 100%;
-//         display: block;
-//         position: absolute;
-//         margin-left: auto;
-//         margin-right: auto;
-//         top: 30%;
-//         left: 0;
-//         right: 0;
-//         text-align: center;
-//         p{
-//             font-size: 20px;
-//             color: white;
-//         }
-//     }
-//     .burger{
-//         @media(min-width: 768px){
-//             display: none;
-//         }
-//     }
-
-// `
-
-
 import React, { useState } from "react";
 import {
     Container,
@@ -114,12 +23,21 @@ import {
 import {
     AiTwotoneMail
 } from "react-icons/ai";
+import {
+    MdComputer
+} from "react-icons/md";
 
 import { IconContext } from "react-icons";
 import styles from './Navbar.module.css';
+import * as Scroll from 'react-scroll';
+import { Link, animateScroll as scroll } from 'react-scroll'
 
 const Navbar = () => {
     const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+    function scrollToTop() {
+        scroll.scrollToTop();
+    }
 
     return (
         <Container>
@@ -137,34 +55,50 @@ const Navbar = () => {
 
                     <Menu open={showMobileMenu}>
                         <MenuItem>
-                            <MenuItemLink className={`${styles.container_MenuItem}`} onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                            <MenuItemLink className={`${styles.container_MenuItem}`}>
                                 <div>
-                                    <FaHome />
-                                    INICIO
+                                    <Link onClick={() => setShowMobileMenu(!showMobileMenu)} to="inicio" spy={true} smooth={true} offset={-1000} duration={100} className="d-flex align-center">
+                                        <FaHome />
+                                        <span className="pt-1">
+                                            INICIO
+                                        </span>
+                                    </Link>
                                 </div>
                             </MenuItemLink>
                         </MenuItem>
                         <MenuItem>
-                            <MenuItemLink className={`${styles.container_MenuItem}`} onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                            <MenuItemLink className={`${styles.container_MenuItem}`}>
                                 <div>
-                                    <FaUserAlt />
-                                    MI TRABAJO
+                                    <Link onClick={() => setShowMobileMenu(!showMobileMenu)} to="trabajo" spy={true} smooth={true} offset={-190} duration={100} className="d-flex">
+                                        <FaUserAlt />
+                                        <span className="pt-1">
+                                            MI TRABAJO
+                                        </span>
+                                    </Link>
                                 </div>
                             </MenuItemLink>
                         </MenuItem>
                         <MenuItem>
-                            <MenuItemLink className={`${styles.container_MenuItem}`} onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                            <MenuItemLink className={`${styles.container_MenuItem}`}>
                                 <div>
-                                    <GrTechnology />
-                                    TECNOLOGÍAS
+                                    <Link onClick={() => setShowMobileMenu(!showMobileMenu)} to="tecnologias" spy={true} smooth={true} offset={-65} duration={100} className="d-flex">
+                                        <MdComputer color="white" />
+                                        <span className="pt-1">
+                                            TECNOLOGÍAS
+                                        </span>
+                                    </Link>
                                 </div>
                             </MenuItemLink>
                         </MenuItem>
                         <MenuItem>
-                            <MenuItemLink className={`${styles.container_MenuItem}`} onClick={() => setShowMobileMenu(!showMobileMenu)}>
+                            <MenuItemLink className={`${styles.container_MenuItem}`}>
                                 <div>
-                                    <AiTwotoneMail />
-                                    CONTACTAME
+                                    <Link onClick={() => setShowMobileMenu(!showMobileMenu)} to="contacto" spy={true} smooth={true} offset={-65} duration={100} className="d-flex">
+                                        <AiTwotoneMail />
+                                        <span className="pt-1">
+                                            CONTACTAME
+                                        </span>
+                                    </Link>
                                 </div>
                             </MenuItemLink>
                         </MenuItem>

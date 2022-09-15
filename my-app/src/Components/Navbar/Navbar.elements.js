@@ -25,6 +25,7 @@ export const LogoContainer = styled.div`
   font-size: 1.2rem;
   font-family: sans-serif;
   p {
+    color: white;
     &:nth-child(2) {
       color: #fff;
     }
