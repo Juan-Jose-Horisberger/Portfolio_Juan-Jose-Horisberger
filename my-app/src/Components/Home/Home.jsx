@@ -288,8 +288,8 @@ export default function Home() {
                         <p className="m-0">Es una Single Page Application donde se muestra información con respecto a diferente tipos de recetas, para obtener dicha información se utilizo una API externa llamada (Spoonacular API). Con la opción de ver el detalle de una receta X, la posibilidad de filtrar en simultaneo dependiendo la necesidad del cliente, y también tenemos la opción de crear recetas.</p>
                     </div>
                     <div className={`${styles.containerButtons_Proyect}`}>
-                        <a href="https://gaed-jm-dusky.vercel.app/LandingPage">Ir al sitio <span className="ps-1"><BsFillEyeFill size={"20px"} color="white" /></span></a>
-                        <a href="https://github.com/Juan-Jose-Horisberger/Proyecto-final-front">Repositorio <span className="ps-1"><BsGithub size={"20px"} color="white" /></span> </a>
+                        <a /*href="https://gaed-jm-dusky.vercel.app/LandingPage" */> <span style={{ textDecoration: "line-through" }}>Ir al sitio <span className="ps-1"><BsFillEyeFill size={"20px"} color="white" /></span></span> <span>Proximamente..</span> </a>
+                        <a className={`${styles.containetA_Food}`} href="https://github.com/Juan-Jose-Horisberger/Food_Proyect">Repositorio <span className="ps-1"><BsGithub size={"20px"} color="white" /></span> </a>
                     </div>
                 </div>
             </div>

@@ -69,7 +69,7 @@ const Navbar = () => {
                         <MenuItem>
                             <MenuItemLink className={`${styles.container_MenuItem}`}>
                                 <div>
-                                    <Link onClick={() => setShowMobileMenu(!showMobileMenu)} to="trabajo" spy={true} smooth={true} offset={-190} duration={100} className="d-flex">
+                                    <Link onClick={() => setShowMobileMenu(!showMobileMenu)} to="trabajo" spy={true} smooth={true} offset={-200} duration={100} className="d-flex">
                                         <FaUserAlt />
                                         <span className="pt-1">
                                             MI TRABAJO
