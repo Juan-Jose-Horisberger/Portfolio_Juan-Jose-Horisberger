@@ -41,6 +41,9 @@ export default function Home() {
         user_email: "",
         user_message: ""
     });
+    const [submittedForm, setSubmittedForm] = useState(false);
+    const [submittedFormTrue, setSubmittedFormTrue] = useState(false);
+
 
     const particlesInit = async (main) => {
         // console.log(main);
@@ -55,6 +58,7 @@ export default function Home() {
     };
 
     function handleOnChange(e) {
+        console.log(e);
         setInput({
             ...input,
             [e.target.name]: e.target.value,
@@ -82,7 +86,13 @@ export default function Home() {
                     user_message: "",
                 });
             })
+            .then((res) => res === undefined && setSubmittedForm(true))
             .catch(e => console.log(e))
+    }
+
+    function closeSuccessAlert(e) {
+        e.preventDefault();
+        setSubmittedFormTrue(true);
     }
 
     useEffect(() => {
@@ -225,7 +235,7 @@ export default function Home() {
                         </div>
 
                         <div className={`${styles.info_Proyect}`}>
-                            <p className="m-0">E-Commerce de ropa enfocado a la venta de indumentaria y calzado. La idea principal del proyecto es brindarle los mejores productos a el usuario donde podrá acceder a un catalogo de artículos 100% originales, con la posibilidad que el mismo pueda utilizar filtros combinados para concretar su compra de manera rápida y eficiente, entre otras funcionalidades..</p>
+                            <p className="m-0">E-Commerce de ropa enfocado a la venta de indumentaria y calzado. La idea principal del proyecto es brindarle los mejores productos a el usuario donde podrá acceder a un catalogo de artículos 100% originales, con la posibilidad que el mismo pueda realizar sus compras manera rápida y eficiente</p>
                         </div>
                         <div className={`${styles.containerButtons_Proyect}`}>
                             <a href="https://gaed-jm-dusky.vercel.app/LandingPage">Ir al sitio <span className="ps-1"><BsFillEyeFill size={"20px"} color="white" /></span></a>
@@ -405,6 +415,36 @@ export default function Home() {
                             </a>
                         </div>
 
+                        <div
+                            className={`
+                                alert alert-success alert-dismissible fade show d-flex 
+                                ${styles.container_AlertSuccess}
+                                ${submittedForm === true &&
+                                    submittedFormTrue === false
+                                    ? styles.open
+                                    : styles.container_AlertSuccess
+                                }`}
+                            role="alert"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                fill="currentColor"
+                                className="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+                                viewBox="0 0 16 16"
+                                role="img"
+                            >
+                                <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                            </svg>
+                            <div>Gracias por tu mensaje, se envio correctamente.</div>
+                            <button
+                                type="button"
+                                className="btn-close"
+                                onClick={(e) => closeSuccessAlert(e)}
+                                aria-label="Close"
+                            ></button>
+                        </div>
                     </form>
                 </div>
             </Element>
