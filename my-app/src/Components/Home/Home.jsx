@@ -11,7 +11,7 @@ import { AiOutlineGithub } from "react-icons/ai";
 import emailjs from "@emailjs/browser";
 import * as Scroll from 'react-scroll';
 import { Element } from 'react-scroll'
-import documentCv from "../../CV de Juan Jose Horisberger.pdf"
+import documentCv from "../../Juan Jose Horisberger CV..pdf"
 
 /*Iconos*/
 import imgHtml from "../../imagenes/imgHtml.svg";
@@ -201,9 +201,9 @@ export default function Home() {
             </Element>
 
 
-            <div class='container_img'>
+            {/* <div class='container_img'>
                 <img src="aca hay una imagen xd" alt="image" />
-            </div>
+            </div> */}
 
             <div className={`${styles.container_Proyects}`} style={{ marginTop: "130px" }}>
                 <div className={`${styles.container_Section1}`}>
